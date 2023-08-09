@@ -1,0 +1,131 @@
+.login-container {
+  background: linear-gradient(90deg, #fedcc5 0%, #feddc6 100%);
+  background-size: cover;
+  min-height: 100vh;
+  padding-top: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .login-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.login-form-container {
+  /* From https://css.glass */
+  border-radius: 40px;
+  background: #ffffff4d;
+  backdrop-filter: blur(15px);
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 50px 40px;
+  align-self: center;
+  order: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .login-form-container {
+    width: 40%;
+    margin-left: 20px;
+    order: 0;
+  }
+}
+
+.form-logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.app-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 700;
+  width: 100%;
+  line-height: normal;
+  margin-right: 35px;
+}
+
+.form-label {
+  color: #2a1e17;
+  font-size: 20px;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.form-label:hover {
+  color: #ef4a2a;
+}
+
+.joby-app-text {
+  color: #ef4a2a;
+  font-size: 20px;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .joby-app-text {
+    font-size: 42px;
+    margin-left: 20px;
+  }
+}
+
+.form-input {
+  border-radius: 5px;
+  border: 1px solid #7e858e;
+  padding: 15px;
+  color: #000;
+  font-family: 'Times new roman';
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.form-submit-button {
+  color: #ffffff;
+  background: linear-gradient(45deg, #ae2f16, #ef4a2a);
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Roboto';
+  padding: 5px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: #ff0b37;
+  font-family: 'Roboto';
+}
+
+.form-img-container {
+  width: 80%;
+  margin: 15px;
+}
+
+@media screen and (min-width: 767px) {
+  .form-img-container {
+    width: 45%;
+    margin-bottom: 30px;
+    margin-top: 3rem;
+  }
+}
