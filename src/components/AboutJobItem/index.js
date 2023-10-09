@@ -1,6 +1,10 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {MdLocationOn} from 'react-icons/md'
+import Popup from 'reactjs-popup'
+
+import 'reactjs-popup/dist/index.css'
+import {ImCancelCircle} from 'react-icons/im'
 import {AiFillStar} from 'react-icons/ai'
 import {BiLinkExternal} from 'react-icons/bi'
 import Loader from 'react-loader-spinner'
@@ -24,6 +28,10 @@ class AboutJobItem extends Component {
 
   componentDidMount() {
     this.getJobData()
+  }
+
+  onSubmitForm = e => {
+    e.preventDefault()
   }
 
   // eslint-disable-next-line no-unused-vars
@@ -170,7 +178,127 @@ class AboutJobItem extends Component {
               </div>
               <img src={lifeAtCompany.imageUrl} alt="life at company" />
             </div>
+
+            <br />
+
+            {/* This button opens react popup */}
+            <div className="popup-container">
+              <Popup
+                modal
+                trigger={
+                  <button type="button" className="apply-button">
+                    Apply Now
+                  </button>
+                }
+              >
+                {/* The popup close Content */}
+                {close => (
+                  <div className="popup-description-container">
+                    <button
+                      type="button"
+                      className="trigger-button"
+                      onClick={() => close()}
+                    >
+                      <ImCancelCircle style={{height: '50px', width: '50px'}} />
+                    </button>
+                    <br />
+                    <br />
+                    <div className="job-item-container">
+                      <div className="first-part-container">
+                        <div className="img-title-container">
+                          <img
+                            className="company-logo"
+                            src={companyLogoUrl}
+                            alt="job details company logo"
+                          />
+                          <div className="title-rating-container">
+                            <h1 className="title-heading">{title}</h1>
+                            <div className="star-rating-container">
+                              <AiFillStar className="star-icon" />
+                              <p className="rating-text">{rating}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="location-package-container">
+                          <div className="location-job-type-container">
+                            <div className="location-icon-location-container">
+                              <MdLocationOn className="location-icon" />
+                              <p className="location">{location}</p>
+                            </div>
+                            <div className="employment-type-icon-employment-type-container">
+                              <p className="job-type">{employmentType}</p>
+                            </div>
+                          </div>
+                          <div className="package-container">
+                            <p className="package">{packagePerAnnum}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <br />
+                      {/* On Apply Job Details */}
+                      <form className="popup-form-container">
+                        {/* User Name Input */}
+                        <div>
+                          <label htmlFor="name">Name</label>
+                          <br />
+                          <input
+                            type="text"
+                            required
+                            placeholder="Enter Applicant Name"
+                          />
+                        </div>
+
+                        <br />
+                        {/* User Email Input */}
+                        <div>
+                          <label htmlFor="name">Name</label>
+                          <br />
+                          <input
+                            type="email"
+                            required
+                            placeholder="Enter Applicant E-Mail"
+                          />
+                        </div>
+
+                        <br />
+                        {/* User Resume Upload Input */}
+                        <div>
+                          <input
+                            type="file"
+                            name="foo"
+                            required
+                            accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*"
+                          />
+                        </div>
+
+                        <br />
+                        {/* User Cover Letter Input */}
+                        <div>
+                          <label htmlFor="name">Name</label>
+                          <textarea rows="8" cols="7" required>
+                            Write A Cover Letter
+                          </textarea>
+                        </div>
+
+                        <br />
+                        {/* Form submit Button */}
+                        <button
+                          type="submit"
+                          onSubmit={this.onSubmitForm}
+                          style={{width: '90%'}}
+                          className="apply-button"
+                        >
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                )}
+              </Popup>
+            </div>
           </div>
+
           <h1 className="similar-jobs-heading">Similar Jobs</h1>
           <ul className="similar-jobs-ul-container">
             {similarJobsData.map(eachItem => (
